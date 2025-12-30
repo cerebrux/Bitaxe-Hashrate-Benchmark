@@ -176,7 +176,8 @@ handling_interrupt = False
 
 def running_stddev(N, s1, s2):
     if N > 1:
-        return ((N * s2 - s1 ** 2) / (N * (N - 1))) ** 0.5
+        var = (N * s2 - s1 ** 2) / (N * (N - 1))
+        return max(var, 0.0) ** 0.5
     else:
         return 0.0
 
