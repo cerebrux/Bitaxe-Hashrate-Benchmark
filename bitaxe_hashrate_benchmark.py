@@ -332,9 +332,14 @@ def restart_system():
                     if info:
                         temp = info.get("temp")
                         power = info.get("power")
+                        vr_temp = info.get("vrTemp")
                         
                         if temp and temp >= max_temp:
                             print(RED + f"CRITICAL: Chip temperature {temp}°C exceeded limit {max_temp}°C during stabilization!" + RESET)
+                            return False
+
+                        if vr_temp and vr_temp >= max_vr_temp:
+                            print(RED + f"CRITICAL: VR temperature {vr_temp}°C exceeded limit {max_vr_temp}°C during stabilization!" + RESET)
                             return False
                             
                         if power and power > max_power:
