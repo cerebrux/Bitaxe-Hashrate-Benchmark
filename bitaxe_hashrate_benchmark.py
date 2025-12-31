@@ -676,7 +676,6 @@ except Exception as e:
     else:
         print(YELLOW + "No valid benchmarking results found. Applying predefined default settings." + RESET)
         set_system_settings(default_voltage, default_frequency)
-        restart_system()
 finally:
     if not system_reset_done:
         if results:
@@ -686,7 +685,6 @@ finally:
         else:
             print(YELLOW + "No valid benchmarking results found. Applying predefined default settings." + RESET)
             set_system_settings(default_voltage, default_frequency)
-            restart_system()
         system_reset_done = True
 
     # Print results summary only if we have results
